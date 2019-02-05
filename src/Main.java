@@ -10,7 +10,6 @@ class BuildBank {
     double savStatment;    /*15000.98*/
     double deposit;
     double withDrwl=0;
-    String usrNam;
 
     public void setUsrPin(int usrPin) { this.usrPin = usrPin; }
     public int getUsrPin() { return usrPin;  }
@@ -28,13 +27,37 @@ class BuildBank {
     public int getDepoOption() { return depoOption; }
 
     public void setChkStatMent(double chkStatMent) { this.chkStatMent = chkStatMent; }
-  public int getChkStatMent() { return chkStatMent; }
+    public double getChkStatMent() { return chkStatMent; }
 
-    public void setSavStatment(int savStatment) { this.savStatment = savStatment; }
-//  public int getSavStatement() { return savStatment; }
+    public void setSavStatment(double savStatment) { this.savStatment = savStatment; }
+    public double getSavStatement() { return savStatment; }
 
-    public void setDeposit(int )
+    public void setDeposit(double deposit) { this.deposit = deposit; }
+    public double getDeposit() { return deposit; }
+
+    public void setWithDrwl(double withDrwl) { this.withDrwl = withDrwl; }
+    public double getWithDrwl() { return withDrwl; }
 }
+
+class BuildUser {
+    Scanner input = new Scanner(System.in);
+    private String usrNam;
+
+    public void setUsrNam(String usrNam) { this.usrNam = usrNam; }
+    public String getUsrNam() { return usrNam; }
+
+    //  User Information
+    public void userInfo() {
+      System.out.println("inside BuildUser/userInfo");
+//        System.out.println("Please Enter your name: ");
+//        usrNam=input.nextLine();
+//        System.out.println(usrNam);
+
+    }
+
+}
+
+
 
 public class Main {
 //    static Scanner input = new Scanner(System.in);
@@ -51,102 +74,34 @@ public class Main {
 //    static double withDrwl=0;
 
     public static void main(String[] args) {
-        System.out.println("Welcome to the Bank");
-//        userInfo();
-        userInput();
-        System.out.println("Thank You!");
-        System.out.println("\n\tChoose an option: ");
-        System.out.println("\t1.Checking Statement 2.Saving Statement 3.Withdrawal 4.Deposit");
-        option=input.nextInt();
-        switch (option) {
-            case 1:
-                bnkStatement();
-                break;
-            case 2:
-                userSavStment();
-                break;
-            case 3:
-                userWithdrawal();
-                break;
-            case 4:
-                userDeposit();
-                break;
-            default:
-                System.out.println("recursion..");
-                break;
-        }
+//        System.out.println("Welcome to the Bank");
+////        userInfo();
+//        userInput();
+//        System.out.println("Thank You!");
+//        System.out.println("\n\tChoose an option: ");
+//        System.out.println("\t1.Checking Statement 2.Saving Statement 3.Withdrawal 4.Deposit");
+//
+//
+//        System.out.println("Thank You!");
 
-        System.out.println("Thank You!");
+        BuildUser builtUser = new BuildUser();
+        builtUser.userInfo();
     }
 
-    //    User Information
-    public static void userInfo() {
-        System.out.println("Please Enter your name: ");
-        usrNam=input.nextLine();
-    }
 
-    //    User Input
-    public static void userInput() {
-        System.out.println("Please enter your pin: ");
-        insrtPin=input.nextInt();
 
-        while(insrtPin != usrPin){
-            System.out.println("The entered pin is incorrect!");
-            System.out.println("Please reEnter");
-            insrtPin=input.nextInt();
-        }
+//    //    User Input
+//    public static void userInput() {
+//        System.out.println("Please enter your pin: ");
+//        insrtPin=input.nextInt();
+//
+//        while(insrtPin != usrPin){
+//            System.out.println("The entered pin is incorrect!");
+//            System.out.println("Please reEnter");
+//            insrtPin=input.nextInt();
+//        }
 
-//        User Bankstatement
-        public static void bnkStatement() {
-            System.out.println("Current Balance (Checking): $" +chkStatMent);
-        }
 
-//        User Savings
-        public static void userSavStment() {
-            System.out.println("Current Balance(Savings): $" +savStatment);
-        }
-
-        public static void userWithdrawal() {
-            System.out.println("\tChecking: $" +savStatment+"\tSaving: $" +savStatment);
-            System.out.println("Withdrawal Amount: $");
-            System.out.println("From which account? 1.Checking 2.Saving");
-            withDrwl=input.nextInt();
-            switch (withDrwlOption) {
-                case 1:
-                    withDrwl=chkStatMent-withDrwl;
-                    System.out.println("Current Balance (Checking): $" +withDrwl);
-                    if (withDrwl>savStatment){
-                        System.out.println("Insufficient Funds!");
-                    } else if(withDrwl==chkStatMent){
-                        System.out.println("WARNING!\nBy entering the above amount you will deplete your account.");
-                        System.out.println("Would you like to continue? 1.Yes 2.No");
-                        wthDrwlOption=input.nextInt();
-                        switch (wthDrwlOption){
-                            case 1:
-                                System.out.println("Processing...");
-                                System.out.println("Please take your money.");
-                                System.out.println("Balance: $0.00");
-                                break;
-                            case 2:
-                                System.out.println("Thankyou!\nYour Process has been saved.");
-                                System.out.println("Balance: $" +chkStatMent);
-                                break;
-                            default:
-                                break;
-                        }
-                    } else {
-                        withDrwl=chkStatMent-withDrwl;
-                        System.out.println("Current Balance(Saving):$ "+withDrwl);
-                    }
-                    break;
-//                case 2: forgot to finish case2
-            }
-        }
-        public static void userOther() {
-            System.out.println("Here you have the option to customize your account.");
-            System.out.println("More features will be added shortly!");
-        }
-    }
 }
 
 /*Verse of the Day:
@@ -167,3 +122,72 @@ public class Main {
 // withDrwl --> withdrawal'
 // usrNam --> 'user name'
 
+//ORGINAL CODE:
+//        User Bankstatement
+//        public static void bnkStatement() {
+//            System.out.println("Current Balance (Checking): $" +chkStatMent);
+//        }
+//
+////        User Savings
+//        public static void userSavStment() {
+//            System.out.println("Current Balance(Savings): $" +savStatment);
+//        }
+//
+//        public static void userWithdrawal() {
+//            System.out.println("\tChecking: $" +savStatment+"\tSaving: $" +savStatment);
+//            System.out.println("Withdrawal Amount: $");
+//            System.out.println("From which account? 1.Checking 2.Saving");
+//            withDrwl=input.nextInt();
+//            switch (withDrwlOption) {
+//                case 1:
+//                    withDrwl=chkStatMent-withDrwl;
+//                    System.out.println("Current Balance (Checking): $" +withDrwl);
+//                    if (withDrwl>savStatment){
+//                        System.out.println("Insufficient Funds!");
+//                    } else if(withDrwl==chkStatMent){
+//                        System.out.println("WARNING!\nBy entering the above amount you will deplete your account.");
+//                        System.out.println("Would you like to continue? 1.Yes 2.No");
+//                        wthDrwlOption=input.nextInt();
+//                        switch (wthDrwlOption){
+//                            case 1:
+//                                System.out.println("Processing...");
+//                                System.out.println("Please take your money.");
+//                                System.out.println("Balance: $0.00");
+//                                break;
+//                            case 2:
+//                                System.out.println("Thankyou!\nYour Process has been saved.");
+//                                System.out.println("Balance: $" +chkStatMent);
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                    } else {
+//                        withDrwl=chkStatMent-withDrwl;
+//                        System.out.println("Current Balance(Saving):$ "+withDrwl);
+//                    }
+//                    break;
+////                case 2: forgot to finish case2
+//            }
+//        }
+//        public static void userOther() {
+//            System.out.println("Here you have the option to customize your account.");
+//            System.out.println("More features will be added shortly!");
+//        }
+//option=input.nextInt();
+//        switch (option) {
+//        case 1:
+//        bnkStatement();
+//        break;
+//        case 2:
+//        userSavStment();
+//        break;
+//        case 3:
+//        userWithdrawal();
+//        break;
+//        case 4:
+//        userDeposit();
+//        break;
+//default:
+//        System.out.println("recursion..");
+//        break;
+//        }
