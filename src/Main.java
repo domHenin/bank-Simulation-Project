@@ -1,18 +1,54 @@
 import java.util.*;
 
+class BuildBank {
+    private int usrPin;
+    private int insrtPin;
+    private int option;
+    int withDwrlOption;
+    int depoOption;
+    double chkStatMent;    /*10000.17*/
+    double savStatment;    /*15000.98*/
+    double deposit;
+    double withDrwl=0;
+    String usrNam;
+
+    public void setUsrPin(int usrPin) { this.usrPin = usrPin; }
+    public int getUsrPin() { return usrPin;  }
+
+    public void setInsrtPin(int insrtPIn) { this.insrtPin = insrtPIn; }
+    public int getInsrtPIn() { return insrtPin; }
+
+    public void setOption(int option) { this.option = option; }
+    public int getOption() { return option; }
+
+    public void setWithDwrlOption(int withDrwl) { this.withDrwl = withDrwl; }
+    public int getWithDwrlOption() { return withDwrlOption; }
+
+    public void setDepoOption(int depoOption) { this.depoOption = depoOption; }
+    public int getDepoOption() { return depoOption; }
+
+    public void setChkStatMent(double chkStatMent) { this.chkStatMent = chkStatMent; }
+  public int getChkStatMent() { return chkStatMent; }
+
+    public void setSavStatment(int savStatment) { this.savStatment = savStatment; }
+//  public int getSavStatement() { return savStatment; }
+
+    public void setDeposit(int )
+}
+
 public class Main {
-    static Scanner input = new Scanner(System.in);
-    static int usrPin = 1234;
-    static int insrtPin;
-    static int option;
-    static int withDrwlOption;
-    static int wthDrwlOption;
-    static int depoOption;
-    static double chkStatMent=10000.17;
-    static double savStatment=15000.98;
-    static double deposit;
-    static String usrNam;
-    static double withDrwl=0;
+//    static Scanner input = new Scanner(System.in);
+//    static int usrPin = 1234;
+//    static int insrtPin;
+//    static int option;
+//    static int withDrwlOption;
+//    static int wthDrwlOption;
+//    static int depoOption;
+//    static double chkStatMent=10000.17;
+//    static double savStatment=15000.98;
+//    static double deposit;
+//    static String usrNam;
+//    static double withDrwl=0;
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Bank");
@@ -43,13 +79,13 @@ public class Main {
         System.out.println("Thank You!");
     }
 
-//    User Information
+    //    User Information
     public static void userInfo() {
         System.out.println("Please Enter your name: ");
         usrNam=input.nextLine();
     }
 
-//    User Input
+    //    User Input
     public static void userInput() {
         System.out.println("Please enter your pin: ");
         insrtPin=input.nextInt();
@@ -61,7 +97,7 @@ public class Main {
         }
 
 //        User Bankstatement
-      public static void bnkStatement() {
+        public static void bnkStatement() {
             System.out.println("Current Balance (Checking): $" +chkStatMent);
         }
 
@@ -118,3 +154,16 @@ public class Main {
  * For by grace are ye saved through faith; and that not of yourselves; it is the gift of God
  * Not of works, lest any man should boast.
  */
+
+//DIRECTORY:
+// usrPin --> 'user pin'
+// insrtPin --> 'insert pin'
+// option --> 'option'
+// withDwrlOption --> 'with drawal option'
+// depoOption --> 'deposit option'
+// chkStatMent --> 'check statement'
+// savStatment--> 'save statement'
+// deposit --> 'deposit'
+// withDrwl --> withdrawal'
+// usrNam --> 'user name'
+
