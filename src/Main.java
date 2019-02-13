@@ -1,30 +1,30 @@
 import java.util.*;
 
 class BuildBank {
-    private int usrPin;
+    private int usrPin=0517;  /*pin=335*/
     private int insrtPin;
-    private int option;
-    int withDwrlOption;
-    int depoOption;
-    double chkStatMent;    /*10000.17*/
-    double savStatment;    /*15000.98*/
-    double deposit;
-    double withDrwl=0;
+//  private int option;
+    private int withDwrlOption;
+    private int deposOption;
+    private double chkStatMent=10000.17;    /*10000.17*/ /*have hard coded the value here, ask for assistance*/
+    private double savStatment=15000.98;    /*15000.98*/ /*have hard coded the value here, ask for assistance*/
+    private double deposit;
+    private double withDrwl;       /*0*/
 
     public void setUsrPin(int usrPin) { this.usrPin = usrPin; }
     public int getUsrPin() { return usrPin;  }
 
-    public void setInsrtPin(int insrtPIn) { this.insrtPin = insrtPIn; }
+    public void setInsrtPin(int insrtPin) { this.insrtPin = insrtPin; }
     public int getInsrtPIn() { return insrtPin; }
 
-    public void setOption(int option) { this.option = option; }
-    public int getOption() { return option; }
+//    public void setOption(int option) { this.option = option; }
+//    public int getOption() { return option; }
 
     public void setWithDwrlOption(int withDrwl) { this.withDrwl = withDrwl; }
     public int getWithDwrlOption() { return withDwrlOption; }
 
-    public void setDepoOption(int depoOption) { this.depoOption = depoOption; }
-    public int getDepoOption() { return depoOption; }
+    public void setDeposOption(int deposOption) { this.deposOption = deposOption; }
+    public int getDepoOption() { return deposOption; }
 
     public void setChkStatMent(double chkStatMent) { this.chkStatMent = chkStatMent; }
     public double getChkStatMent() { return chkStatMent; }
@@ -57,51 +57,95 @@ class BuildUser {
 
 }
 
+class BuildUserInput {
+    Scanner input = new Scanner(System.in);
+    String usrNam;
+    int insrtPin;
+    int option;
 
+
+//User Info
+    public void userInfo() {
+        System.out.println("Please Enter your name: ");
+        usrNam = input.nextLine();
+    }
+//User Input
+    public void userInput() {
+        BuildBank buildBankUserInput = new BuildBank();
+        buildBankUserInput.setChkStatMent(10000.17);
+        buildBankUserInput.getChkStatMent();
+        buildBankUserInput.setSavStatment(15000.98);
+        buildBankUserInput.getSavStatement();
+        buildBankUserInput.setUsrPin(0517);
+        buildBankUserInput.getUsrPin();
+        System.out.println("Please enter your pin: ");
+        insrtPin = input.nextInt();
+
+        while (insrtPin != buildBankUserInput.getUsrPin()) {
+            System.out.println("The entered pin is incorrect!");
+            System.out.println("Please ReEnter: ");
+            insrtPin = input.nextInt();
+        }
+    }
+
+    public void userOptions() {
+        BuildBank buildBankUserOptions = new BuildBank();
+        System.out.println("\n\tChoose an option: ");
+        System.out.println("\t1.Checking Statement 2.Saving Statement 3.Withdrawal 4.Deposit");
+        option = input.nextInt();
+
+        switch (option) {
+            case 1:
+                System.out.println(buildBankUserOptions.getChkStatMent());
+                break;
+            case 2:
+                System.out.println(buildBankUserOptions.getSavStatement());
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            default:
+                System.out.println("recursion..");
+                break;
+        }
+    }
+}
+
+class BuildUserBankInfo {
+    BuildBank buildUserBankInfo = new BuildBank();
+//user Bankstatment
+    public void bnkStatement() {
+        buildUserBankInfo.setChkStatMent(10000.17);
+        System.out.println("Current Balance (Checking): $" +buildUserBankInfo.getChkStatMent());
+    }
+//user Savings statement
+    public void userSavStment() {
+        buildUserBankInfo.setSavStatment(15000.98);
+        buildUserBankInfo.getSavStatement();
+    }
+
+}
 
 public class Main {
 //    static Scanner input = new Scanner(System.in);
-//    static int usrPin = 1234;
-//    static int insrtPin;
-//    static int option;
-//    static int withDrwlOption;
-//    static int wthDrwlOption;
-//    static int depoOption;
-//    static double chkStatMent=10000.17;
-//    static double savStatment=15000.98;
-//    static double deposit;
-//    static String usrNam;
-//    static double withDrwl=0;
-
     public static void main(String[] args) {
-//        System.out.println("Welcome to the Bank");
-////        userInfo();
+        System.out.println("Welcome to the Bank");
+//        userInfo();
 //        userInput();
-//        System.out.println("Thank You!");
-//        System.out.println("\n\tChoose an option: ");
-//        System.out.println("\t1.Checking Statement 2.Saving Statement 3.Withdrawal 4.Deposit");
-//
-//
-//        System.out.println("Thank You!");
+        BuildUserInput buildUserInputMain = new BuildUserInput();
+        buildUserInputMain.userInfo();
+        buildUserInputMain.userInput();   /*this has been commentd out bcuz im getting an unknown pin*/
+        buildUserInputMain.userOptions();
 
-        BuildUser builtUser = new BuildUser();
-        builtUser.userInfo();
+
+
+
+        System.out.println("Thank You!");
+
     }
-
-
-
-//    //    User Input
-//    public static void userInput() {
-//        System.out.println("Please enter your pin: ");
-//        insrtPin=input.nextInt();
-//
-//        while(insrtPin != usrPin){
-//            System.out.println("The entered pin is incorrect!");
-//            System.out.println("Please reEnter");
-//            insrtPin=input.nextInt();
-//        }
-
-
 }
 
 /*Verse of the Day:
@@ -115,12 +159,13 @@ public class Main {
 // insrtPin --> 'insert pin'
 // option --> 'option'
 // withDwrlOption --> 'with drawal option'
-// depoOption --> 'deposit option'
+// deposOption --> 'deposit option'
 // chkStatMent --> 'check statement'
 // savStatment--> 'save statement'
 // deposit --> 'deposit'
 // withDrwl --> withdrawal'
 // usrNam --> 'user name'
+//userSavStment --> 'user save statement'
 
 //ORGINAL CODE:
 //        User Bankstatement
