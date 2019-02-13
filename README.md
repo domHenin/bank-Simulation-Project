@@ -12,4 +12,10 @@ TODO:
   > remove unneeded code blocks for sake of confusion
   > reread source code to get infrastructure of original program
   
+  02/05/19
+  TODO:
+  > CONFUSED NOW....
+  >>left off on trying to figure out how to call the setters of a function from another class.
+  
+  
   
