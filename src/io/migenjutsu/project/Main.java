@@ -55,25 +55,15 @@ public class Main {
 //        userInfo();
         userInput();
         System.out.println("Thank You!");
-        System.out.println("\n\tChoose an option: ");
-        System.out.println("\t1.Checking Statement 2.Saving Statement 3.Withdrawal 4.Deposit");
-        option=input.nextInt();
-        switch (option) {
-            case 1:
-                bnkStatement();
-                break;
-            case 2:
-                userSavStment();
-                break;
-            case 3:
-                userWithdrawal();
-                break;
-            case 4:
-                userDeposit();
-                break;
-            default:
-                System.out.println("recursion..");
-                break;
+        
+        char option;
+
+        do {
+            option=getChoice();
+            switch(option) {
+                case C:
+
+            }
         }
 
         System.out.println("Thank You!");
@@ -97,9 +87,9 @@ public class Main {
         }
 
 //        User Bankstatement
-        public static void bnkStatement() {
-            System.out.println("Current Balance (Checking): $" +chkStatMent);
-        }
+        // public static void bnkStatement() {
+        //     System.out.println("Current Balance (Checking): $" +chkStatMent);
+        // }
 
 //        User Savings
         public static void userSavStment() {
@@ -142,6 +132,26 @@ public class Main {
 //                case 2: forgot to finish case2
             }
         }
+
+        public static char getChoice() {
+            char result;
+    
+            Scanner scanner = new Scanner(System.in);
+    
+            System.out.println();
+            System.out.println("#########################");
+            System.out.println("# [C]hecking Statement #");
+            System.out.println("# [S]aving Statement   #");
+            System.out.println("# [W]ithdrawal\t #");
+            System.out.println("# [D]eposit\t #");
+            System.out.println("# [Q]uit Program\t #");
+            System.out.println("#########################");
+    
+            System.out.println("Enter Selection: ");
+            result=scanner.nextLine().toUpperCase().charAt(0);
+            return result;
+        }
+
         public static void userOther() {
             System.out.println("Here you have the option to customize your account.");
             System.out.println("More features will be added shortly!");
