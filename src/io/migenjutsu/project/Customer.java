@@ -1,69 +1,95 @@
 package io.migenjutsu.project;
 
-public class Customer extends Bank {
+public class Customer {
     private int userPin;
-    private int depositAmount;
+    private double depositAmount;
+    private double currentBalance;
     private double checkStatement;
     private double saveStatement;
+    private double savings;
 
-    public Customer(int userPin, int depositAmount, double checkStatement, double saveStatement, String bankName) {
-        super(bankName);
-        setUserPin(userPin);
-        setDepositAmount(depositAmount);
-        this.checkStatement=checkStatement;
-        this.saveStatement=saveStatement;
-
-    }
+    // public Customer(int userPin, int depositAmount, double currentBalance, double checkStatement, double saveStatement, String bankName) {
+    //     super(bankName);
+    //     setUserPin(userPin);
+    //     setDepositAmount(depositAmount);
+    //     this.currentBalance=currentBalance;
+    //     this.checkStatement=checkStatement;
+    //     this.saveStatement=saveStatement;
+    // }
 
 
 // SETTERS:
     public void setUserPin(int userPin) { this.userPin = userPin; }
     public void setDepositAmount(int depositAmount) { this.depositAmount=depositAmount; }
+    public void setCurrentBalance(double currentBalance) { this.currentBalance = currentBalance; }
     public void setCheckStatement(double checkStatement) { this.checkStatement = checkStatement;  }
     public void setSaveStatement(double saveStatement) { this.saveStatement = saveStatement; }
 
+    public void setSavings(double savings) {
+        this.savings = savings;
+    }
+
 //GETTERS:
     public int getUserPin() { return userPin; }
-    public int getDepositAmount() { return depositAmount; }
+    public double getDepositAmount() { return depositAmount; }
+    public double getCurrentBalance() { return currentBalance; }
     public double getCheckStatement() { return checkStatement; }
     public double getSaveStatement() { return saveStatement; }
 
-
-    @Override
-    public void insertPin() {
-
+    public double getSavings() {
+        return savings;
     }
 
-    @Override
-    void withDrawOption() {
 
-    }
+    // @Override
+    // public void insertPin() {
 
-    @Override
-    void depositOption() {
+    // }
 
-    }
+    // @Override
+    // void withDrawOption() {
 
-    @Override
-    void grabClientName() {
+    // }
 
-    }
+    // @Override
+    // void depositOption() {
 
-    @Override
-    void grabTellerName() {
+    // }
 
-    }
+    // @Override
+    // void grabClientName() {
+
+    // }
+
+    // @Override
+    // void grabTellerName() {
+
+    // }
 
     // User Bankstatement
-    public static double bankStatement() {
-        System.out.println("Current Balance (Checking): $" +getCheckStatement);
-        return getCheckStatement;
+    public double bankStatement() {
+        // double savings=1000.00;
+        savings=1000.00;
+        System.out.println("Current Balance (Checking): $" +savings);
+        // System.out.println("Current Balance (Checking): $" +getCurrentBalance);
+        return savings;
     }
 
-    //        User Savings
+    public double userWithdrawal(double withdrawAmount) {
+        // double withdraw = withdrawAmount -savings;
+        
+        // System.out.println("Withdraw Amount: "+newBalance);
+        // return newBalance;
+        return savings - withdrawAmount;
+
+        
+    }
+
+    // User Savings
     public static double userSavStment() {
-        System.out.println("Current Balance(Savings): $" +getSaveStatment);
-        return getSaveStatment;
+        double savings=1000.00;
+        System.out.println("Current Balance(Savings): $" +savings);
+        return savings;
     }
 
     public String toString() {
